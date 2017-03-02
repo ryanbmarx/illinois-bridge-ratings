@@ -5,30 +5,35 @@
   "main": "js/src/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "grunt",
-    "watch": "grunt watch"
+    "build": "npm run getCsv && grunt",
+    "watch": "grunt watch",
+    "getCsv": "mkdir -p data && node downloadCSV.js 'https://docs.google.com/spreadsheets/d/1Qkg9kkfssUHspeltPjSr5fuMy6F40hIlDOOgDJjbhvc/pub?gid=1797052793&single=true&output=csv' './data/bridge-ratings.csv'"
   },
   "repository": {
     "type": "git",
     "url": ""
   },
-  "keywords": [
-  ],
+  "keywords": [],
   "author": "Chicago Tribune News Applications",
   "license": "MIT",
   "devDependencies": {
-    "babelify": "^7.3.0",
     "babel-preset-es2015": "^6.9.0",
+    "babelify": "^7.3.0",
     "browserify": "^10.2.4",
     "grunt": "^0.4.5",
     "grunt-browserify": "^3.8.0",
     "grunt-contrib-watch": "^0.6.1",
     "grunt-sass": "^1.2.0",
     "minifyify": "^7.3.3",
+    "request": "^2.79.0",
     "trib-styles": "git+https://tribune.unfuddle.com/git/tribune_trib-styles/"
   },
   "browserify": {
     "debug": true
   },
-  "tribune": {}
+  "tribune": {},
+  "dependencies": {
+    "d3": "^4.7.1",
+    "underscore": "^1.8.3"
+  }
 }
