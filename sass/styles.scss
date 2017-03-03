@@ -1,0 +1,14 @@
+@import 'base-variables';
+@import 'base-mixins';
+.chart {
+	&--histogram{
+		width:280px;
+		height:200px;
+		background:#eee;
+	}
+}
+
+
+.bar-label{
+	@include agate();
+}
