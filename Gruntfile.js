@@ -7,8 +7,8 @@ module.exports = function(grunt) {
   //     npm install --save jquery
   var VENDOR_LIBRARIES = [
     'd3',
-    // 'underscore',
-    'lodash'
+    'lodash.countby',
+    'lodash.filter'
   ];
 
   config.browserify = {
