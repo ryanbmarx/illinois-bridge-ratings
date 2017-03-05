@@ -18,6 +18,8 @@ function scatterline(data, category, container){
 		innerHeight = height - margin.top - margin.bottom,
 		innerWidth = width - margin.right - margin.left;
 
+	const axisFormat = category == "year_built" ? "d" : ",";
+
 	const extent = d3.extent(data, d => parseInt(d[category]));
 	
 	console.log(extent);
@@ -28,7 +30,8 @@ function scatterline(data, category, container){
 		.nice();
 
 	const xAxis = d3.axisBottom(scatterScale)
-	    .tickSize(circleRadius * 2);
+	    .tickSize(circleRadius * 2)
+	    .tickFormat(d3.format(axisFormat));
 
 	// ----------------------------------
 	// START MESSING WITH SVGs

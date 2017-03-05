@@ -23,7 +23,8 @@ window.onload = function(){
 		});
 
 		document.querySelectorAll('.chart--scatterline').forEach(chart =>{
-			let category = chart.dataset.chart;
+			const category = chart.dataset.chart;
+
 			scatterline(data, category, chart);	
 		});
 	})
