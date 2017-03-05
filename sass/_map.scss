@@ -6,14 +6,18 @@
 	&__header{
 		@include label7();
 		margin:0;
+		text-align:center;
 	}
 	&__sub-header{
 		@include sans-serif();
 		margin:0 0 15px 0;
+		text-align:center;
 	}
 
 	&__legend{
 		@include trib-legend();
+		width:150px;
+		margin: 0 auto;
 	}
 
 	&__legend-box{

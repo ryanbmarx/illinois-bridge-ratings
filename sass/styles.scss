@@ -31,14 +31,23 @@ $mobile-max-width: 449px;
 	margin:0 auto 15px auto;
 }
 
-.chart-label{
-	@include label7();
-	// text-align:center;
-}
+.trb_mainContent{
+	.chart-label{
+		@include label7();
+		// text-align:center;
+		margin:0;
+	}
 
-.trb_mainContent .credits p{
-	@include agate();
-	margin-top:15px
+	.chart-sublabel{
+		@include sans-serif();
+		margin:0;
+		// text-align:center;
+	}
+	 .credits p{
+		@include agate();
+		margin-top:15px
+	}
+
 }
 
 
