@@ -17,6 +17,28 @@ import * as d3 from 'd3';
 
 */
 
+function makeLegend(scale, container){
+	const legend = container.append('dl')
+		.classed('map__legend', true);
+
+	// Establish the d3-format function we want
+	const formatter = d3.format('.1%')
+
+	// The colors in the map
+	const buckets = scale.range();
+
+	buckets.forEach( (bucket, idx) => {
+		legend.append('dt')
+			.append('span')
+			.classed('map__legend-box', true)
+			.style('background-color', scale(scale.invertExtent(bucket)[0]))
+		let text = idx == 0 ? `Fewer than ${formatter(scale.invertExtent(bucket)[1])}` : `${formatter(scale.invertExtent(bucket)[0])} to ${formatter(scale.invertExtent(bucket)[1])}`;
+		legend.append('dd')
+			.html(text);
+	})
+}
+
+
 
 class illinoisCountyChoropleth{
 
@@ -26,12 +48,42 @@ class illinoisCountyChoropleth{
 		const data = app.options.data;
 		const mapContainer = d3.select(app.options.container);
 
-		console.log(data);
+		console.log('map data', data);
 
 		const containerBox = mapContainer.node().getBoundingClientRect(),
 			height = containerBox.height,
 			width = containerBox.width;
 			
+
+		// We're charting the percentage of deficient bridges, so we want the extent of deficient/total bridges
+		const extent = d3.extent(data.features, d => {
+			return (d['properties']['deficient'] / d['properties']['bridges']);
+		});
+
+
+
+		// Pull the color or color ramp from the options
+		const colors = app.options.color
+		console.log(colors.length, typeof(colors));
+		let mapScale;
+
+		if (app.options.type == "quantize"){
+			console.log('quant');
+			// If colors is an array, then use the quantize scale
+			mapScale = d3.scaleQuantize()
+				.domain(extent)
+				.range(colors);
+		} else if (app.options.type == "linear") {
+			// If the colors isn't an array but a string, then check if it is just a string.
+			mapScale = d3.scaleLinear()
+				.domain(extent)
+				.range([0,1]);
+		} else {
+			console.error("The color option must be either a hex string (linear scale) or an array of hex strings (quantize scale)");
+		}
+
+		makeLegend(mapScale, mapContainer);
+
 		const svg = mapContainer.append('svg')
 			.attr( "width", width )
 			.attr( "height", height );
@@ -70,8 +122,11 @@ class illinoisCountyChoropleth{
 			.data(data.features)
 			.enter()
 				.append('path')
-					.style('fill', '#eee')
-					.style('stroke', '#888')
+					.style('fill', d => {
+						console.log(d);
+						return mapScale(d.properties.deficient / d.properties.bridges)
+					})
+					.style('stroke', '#fefefe')
 					.style('stroke-width', 1)
 					.attr( "d", geoPath);
 	}

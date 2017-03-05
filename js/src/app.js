@@ -18,17 +18,17 @@ window.onload = function(){
 		
 		document.querySelectorAll('.chart--histogram').forEach(chart =>{
 			let category = chart.dataset.chart;
-			// histogram(data, category, chart);	
+			histogram(data, category, chart);	
 		});
 	})
 
-	json(`http://${window.ROOT_URL}/data/illinois-counties.geojson`, (err, geoData) => {
-		console.log(geoData);
+	json(`http://${window.ROOT_URL}/data/illinois-counties-with-ratings.geojson`, (err, geoData) => {
 		const illMap = new illinoisCountyChoropleth({
 			container: document.getElementById('map'),
-			data: geoData
-			// type: // "quantize" or "continuous"
-			// color: // "single hex for opacity" or "array of colors" for quantize
+			data: geoData,
+			type: 'quantize', // "quantize" or "continuous"
+			color: ["#CBDDED","#85B4D3","#7493C1", "#004E87"]
+		
  		})
 	})
 }

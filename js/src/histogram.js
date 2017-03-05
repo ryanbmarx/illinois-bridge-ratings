@@ -22,7 +22,7 @@ function generateHistogramData(rawData, category){
 	// countBy won't know if there are any ratings missing, so we'll do a quick check. We want a bar 
 	// for each of the 8 ratings and n/a even if any of those values is zero.
 	// This array order also will be the order in which the bars are rendered
-	const ratings = ["N","F", 1,2,3,4,5,6,7,8];
+	const ratings = ["N",1,2,3,4,5,6,7,8];
 
 	ratings.forEach(rating => {
 		if (!(tempData[rating] > 0)){
@@ -40,8 +40,6 @@ function generateHistogramData(rawData, category){
 			value:tempData[rating]
 		});
 	});
-
-
 	return histData;
 }
 
@@ -62,7 +60,7 @@ function histogram(rawData, category, container){
 		barFill:'trib-blue2',
 		barLabels:true,
 		startAtZero:true,
-		maxYValue:250,
+		maxYValue:160,
 		showYAxis:false,
 		xTicks:{
 			// At these breakpoints, only run a tick every nth time. The value is the interval.
