@@ -5,9 +5,10 @@
   "main": "js/src/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npm run getCsv && grunt",
+    "build": "npm run getCsv && npm run build:geojson && grunt",
     "watch": "grunt watch",
-    "getCsv": "mkdir -p data && node downloadCSV.js 'https://docs.google.com/spreadsheets/d/1Qkg9kkfssUHspeltPjSr5fuMy6F40hIlDOOgDJjbhvc/pub?gid=1797052793&single=true&output=csv' './data/bridge-ratings.csv'"
+    "getCsv": "mkdir -p data && node downloadCSV.js 'https://docs.google.com/spreadsheets/d/1Qkg9kkfssUHspeltPjSr5fuMy6F40hIlDOOgDJjbhvc/pub?gid=1797052793&single=true&output=csv' './data/bridge-ratings.csv' && node downloadCSV.js 'https://docs.google.com/spreadsheets/d/1Qkg9kkfssUHspeltPjSr5fuMy6F40hIlDOOgDJjbhvc/pub?gid=649587871&single=true&output=csv' './data/counties-ratings.csv' && dos2unix data/counties-ratings.csv",
+    "build:geojson": "node appendDataToGeojson.js"
   },
   "repository": {
     "type": "git",
