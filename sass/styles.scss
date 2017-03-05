@@ -1,14 +1,79 @@
 @import 'base-variables';
+$map-width:280px;
+$map-margin: 50px;
+
 @import 'base-mixins';
+
+.trb_mainContent p{
+	width: auto;
+}
+
+.graphic-wrapper{
+	// display: flex;
+ //    align-items: flex-start;
+ //    justify-content: space-between;
+ //    flex-wrap: wrap;
+
+    max-width: 700px;
+    margin:0 auto;
+    // border-left: 1px dashed #aaa;
+    // border-right: 1px dashed #aaa;
+}
+
+.histograms{
+	// margin-left:$map-width + $map-margin;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    height:400px;
+    overflow:hidden;
+    border:1px solid black;
+}
 .chart {
 	&--histogram{
-		width:280px;
-		height:200px;
-		background:#eee;
+		// width:$map-width;
+ height: 180px;
+    background: #eee;
+    width: 30%;
 	}
 }
 
 
 .bar-label{
 	@include agate();
+}
+
+
+.trb_mainContent .map{
+	width: $map-width;
+	height: 600px;
+	float:left;
+	// background: rgba(blue, .1);
+
+	&__header{
+		@include label7();
+		margin:0;
+	}
+	&__sub-header{
+		@include sans-serif();
+		margin:0;
+	}
+
+	&__legend{
+		@include trib-legend();
+	}
+
+	&__legend-box{
+		@include trib-legend__box(0);
+	}
+}
+
+@media all and (max-width:449px){
+	.histograms{
+		width:280px;
+		margin:0 auto;
+		display:block;
+		height:900px;
+	}
+	.chart--histogram{width: auto;}
 }
