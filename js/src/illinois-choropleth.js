@@ -32,7 +32,12 @@ function makeLegend(scale, container){
 			.append('span')
 			.classed('map__legend-box', true)
 			.style('background-color', scale(scale.invertExtent(bucket)[0]))
-		let text = idx == 0 ? `Fewer than ${formatter(scale.invertExtent(bucket)[1])}` : `${formatter(scale.invertExtent(bucket)[0])} to ${formatter(scale.invertExtent(bucket)[1])}`;
+		
+		// These are the numbers for the scale. We want the top bounds to be just a little less than the next bucket.
+		const 	extentLower = formatter(scale.invertExtent(bucket)[0]),
+				extentHigher = formatter(scale.invertExtent(bucket)[1] - 0.001);
+
+		const text = idx == 0 ? `Fewer than ${formatter(scale.invertExtent(bucket)[1])}` : `${extentLower} to ${extentHigher}`;
 		legend.append('dd')
 			.html(text);
 	})
