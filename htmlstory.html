@@ -30,12 +30,16 @@
       </tr>
     </thead>
     <tbody>
-      {% for county in counties|sort(true, attribute='bridges') if county.chicago_area == 1 %}
-        <tr>
+      {% for county in counties|sort(true, attribute='deficient_per') if county.chicago_area == 1 %}
+        {% if county.county == "Illinois average" %}
+          <tr class='map-table__illinois'>
+        {% else %}
+          <tr>
+        {% endif %}
           <td>{{ county.county }}</td>
-          <td class='align-right'>{{ county.bridges }}</td>
-          <td class='align-right'>{{ county.deficient }}</td>
-          <td class='align-right'>{{ county.deficient_per }}</td>
+          <td class='align-right'>{{ county.bridges|int|int_commas }}</td>
+          <td class='align-right'>{{ county.deficient|int|int_commas }}</td>
+          <td class='align-right'>{{ county.deficient_per|format_percentage }}</td>
         </tr>
       {% endfor %}
     </tbody>

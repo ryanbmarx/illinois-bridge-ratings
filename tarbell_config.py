@@ -3,6 +3,16 @@
 """
 Tarbell project configuration
 """
+from flask import Blueprint, g, render_template
+import ftfy
+import jinja2
+
+blueprint = Blueprint('chicago-area-bridge-ratings', __name__)
+
+@blueprint.app_template_filter('format_percentage')
+def format_percentage(num):
+    return "{:.1%}".format(float(num))
+
 
 # Google spreadsheet key
 SPREADSHEET_KEY = "1Qkg9kkfssUHspeltPjSr5fuMy6F40hIlDOOgDJjbhvc"

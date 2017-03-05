@@ -27,6 +27,12 @@
 
 .map-table{
 	@include trib-table(compressed);
-	max-width: 500px;
+	max-width: 400px;
 	margin:15px auto;
+
+	.map-table__illinois{
+		background: rgba($trib_blue4, .35);
+		
+		td{font-weight:bold;}
+	}
 }
