@@ -1,27 +1,58 @@
 {% block content %}
-dfsdfdsf
+<style type="text/css">
+
+    .graphic-wrapper{
+      position:relative;
+      max-width: 580px;
+      margin:0 auto;
+
+    }
+
+    .asset-button{
+      position:absolute;
+      top:45%;
+      right:0;
+
+      font-family:'Arial', sans-serif;
+      font-size: 16px;
+      line-height:1.3em;
+      text-align:center;
+      text-decoration: none;
+
+      display:block;
+      width:100px;
+      background:#004E87;
+      color:white;
+      padding:10px;
+    }
+
+    .asset-button span{
+      display:block;
+      font-size:14px;
+    }
+
+    .asset-button.asset-button--mobile{display:none};
+    #g-chicago-area-bridge-ratings-mobile{display:none;}
+    
+    @media all and (max-width:579px){
+      .graphic-wrapper{ max-width: 280px; }
+      .asset-button{display:none;}
+      .asset-button.asset-button--mobile{
+        display:block;
+        font-size:14px;
+        width:75px;
+      }
+      #g-chicago-area-bridge-ratings-mobile{display:block;}
+      #g-chicago-area-bridge-ratings-desktop{display:none;}
+    }
+</style>
+
+<div class='graphic-wrapper'>
+  {% include 'ai/ai2html-output/chicago-area-bridge-ratings.html'%}
+  <a class='asset-button' href='{{ asset_link_url }}'>{{ asset_link_text|process_text }}</a>
+    <a class='asset-button asset-button--mobile' href='{{ asset_link_url }}'>{{ asset_link_text_mobile|process_text }}</a>
+
+</div>
+
 {% endblock content %}
 
-{% block library_scripts %}
-{# Uncomment this if you are using libraries such as jQuery #}
-<script src="//{{ ROOT_URL }}/js/vendor.min.js"></script>
-{% endblock %}
-
-{% block scripts %}
-{# Uncomment this if you are using custom JavaScript #}
-<script src="//{{ ROOT_URL }}/js/app.min.js"></script>
-<script>
-(function(document) {
-  window.ROOT_URL = "{{ ROOT_URL }}"
-  var CSS = [
-    "//{{ ROOT_URL }}/css/styles.css"
-  ];
-  CSS.forEach(function(url) {
-    var link = document.createElement('link');
-    link.setAttribute('rel', 'stylesheet');
-    link.setAttribute('href', url);
-    document.head.appendChild(link);
-  });
-})(document);
-</script>
-{% endblock scripts %}
