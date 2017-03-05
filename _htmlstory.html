@@ -1,6 +1,9 @@
 {% macro add_chart(chart) %}
       <div class='text-wrapper'>
         <h3 class='chart-label'>{{ chart.headline }}</h3>
+        {% if chart.sublabel %}
+          <p class='chart-sublabel'>{{ chart.sublabel }}</p>
+        {% endif %}
         {% if chart.blurb %}
           {{ chart.blurb|markdown }}
         {% endif %}
