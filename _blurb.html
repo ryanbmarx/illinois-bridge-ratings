@@ -31,7 +31,8 @@
       font-size:14px;
     }
 
-    .asset-button.asset-button--mobile{display:none};
+    .asset-button.asset-button--mobile{display:none;}
+
     #g-chicago-area-bridge-ratings-mobile{display:none;}
     
     @media all and (max-width:579px){
@@ -49,8 +50,8 @@
 
 <div class='graphic-wrapper'>
   {% include 'ai/ai2html-output/chicago-area-bridge-ratings.html'%}
-  <a class='asset-button' href='{{ asset_link_url }}'>{{ asset_link_text|process_text }}</a>
-    <a class='asset-button asset-button--mobile' href='{{ asset_link_url }}'>{{ asset_link_text_mobile|process_text }}</a>
+  <a class='asset-button' href='{{ asset_link_url }}' target="_blank">{{ asset_link_text|process_text }}</a>
+  <a class='asset-button asset-button--mobile' href='{{ asset_link_url }}' target="_blank">{{ asset_link_text_mobile|process_text }}</a>
 
 </div>
 
