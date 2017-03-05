@@ -1,0 +1,22 @@
+.trb_mainContent .map{
+	width: 400px;
+	height: 600px;
+	margin:0 auto 15px auto;
+
+	&__header{
+		@include label7();
+		margin:0;
+	}
+	&__sub-header{
+		@include sans-serif();
+		margin:0 0 15px 0;
+	}
+
+	&__legend{
+		@include trib-legend();
+	}
+
+	&__legend-box{
+		@include trib-legend__box(0);
+	}
+}

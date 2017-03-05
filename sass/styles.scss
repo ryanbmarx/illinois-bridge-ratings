@@ -2,17 +2,23 @@
 $map-width:280px;
 $map-margin: 50px;
 
+$tablet-max-width: 849px;
+$mobile-max-width: 449px;
+
 @import 'base-mixins';
+
+@import 'map';
+@import 'histograms';
 
 .trb_mainContent p{
 	width: auto;
 }
 
 .graphic-wrapper{
-	// display: flex;
- //    align-items: flex-start;
- //    justify-content: space-between;
- //    flex-wrap: wrap;
+	display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
 
     max-width: 700px;
     margin:0 auto;
@@ -20,55 +26,24 @@ $map-margin: 50px;
     // border-right: 1px dashed #aaa;
 }
 
-.histograms{
-	// margin-left:$map-width + $map-margin;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    height:400px;
-    overflow:hidden;
-    border:1px solid black;
+.text-wrapper{
+	max-width:500px;
+	margin:0 auto 15px auto;
 }
-.chart {
-	&--histogram{
-		// width:$map-width;
- height: 180px;
-    background: #eee;
-    width: 30%;
-	}
+
+.chart-label{
+	@include label7();
+	text-align:center;
 }
 
 
-.bar-label{
-	@include agate();
+
+
+@media all and (max-width:$tablet-max-width){
+
 }
 
-
-.trb_mainContent .map{
-	width: $map-width;
-	height: 600px;
-	float:left;
-	// background: rgba(blue, .1);
-
-	&__header{
-		@include label7();
-		margin:0;
-	}
-	&__sub-header{
-		@include sans-serif();
-		margin:0;
-	}
-
-	&__legend{
-		@include trib-legend();
-	}
-
-	&__legend-box{
-		@include trib-legend__box(0);
-	}
-}
-
-@media all and (max-width:449px){
+@media all and (max-width:$mobile-max-width){
 	.histograms{
 		width:280px;
 		margin:0 auto;
@@ -77,3 +52,4 @@ $map-margin: 50px;
 	}
 	.chart--histogram{width: auto;}
 }
+

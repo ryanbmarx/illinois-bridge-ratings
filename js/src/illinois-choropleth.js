@@ -51,7 +51,7 @@ class illinoisCountyChoropleth{
 		console.log('map data', data);
 
 		const containerBox = mapContainer.node().getBoundingClientRect(),
-			height = containerBox.height,
+			height = containerBox.height - 150,
 			width = containerBox.width;
 			
 
@@ -64,11 +64,9 @@ class illinoisCountyChoropleth{
 
 		// Pull the color or color ramp from the options
 		const colors = app.options.color
-		console.log(colors.length, typeof(colors));
 		let mapScale;
 
 		if (app.options.type == "quantize"){
-			console.log('quant');
 			// If colors is an array, then use the quantize scale
 			mapScale = d3.scaleQuantize()
 				.domain(extent)
@@ -123,7 +121,6 @@ class illinoisCountyChoropleth{
 			.enter()
 				.append('path')
 					.style('fill', d => {
-						console.log(d);
 						return mapScale(d.properties.deficient / d.properties.bridges)
 					})
 					.style('stroke', '#fefefe')

@@ -1,0 +1,23 @@
+.histogram-header{
+	@include label5();
+}
+
+
+.histograms{
+	width:100%;
+	// margin-left:$map-width + $map-margin;
+    // height:400px;
+    // overflow:hidden;
+    // border:1px solid black;
+}
+.chart {
+	&--histogram{
+		width:100%;
+		height: 180px;
+	}
+}
+
+
+.bar-label{
+	@include agate();
+}

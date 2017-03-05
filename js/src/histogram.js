@@ -67,14 +67,14 @@ function histogram(rawData, category, container){
 			mobile:5,
 			tablet:2,
 			desktop:1
-		},
-		meta:{
-			headline:category,
+		}
+		// meta:{
+			// headline:category,
 			// yAxisLabel: "Tests exceeding 500ml",
 			// xAxisLabel: "Testing station ID",
 			// sources: "Source: City of Chicago Wastewater Management and Reclamation District",
 			// credit: "ChiTribGraphics"
-		}
+		// }
 	});
 
 	console.log(data);
