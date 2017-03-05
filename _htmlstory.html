@@ -1,3 +1,12 @@
+{% macro add_chart(chart) %}
+      <div class='text-wrapper'>
+        <h3 class='chart-label'>{{ chart.headline }}</h3>
+        {% if chart.blurb %}
+          {{ chart.blurb|markdown }}
+        {% endif %}
+      </div>
+      <div data-chart='{{ chart.category }}' class='chart chart--{{ chart.type }}'></div>
+{% endmacro %}
 {% block content %}
 <div class='graphic-wrapper'>
   <div class='text-wrapper'>
@@ -16,22 +25,25 @@
   </div>
   <div class='histograms'>
     {% for chart in charts if chart.type == "histogram" %}
-    <h3 class='chart-label'>{{ chart.headline }}</h3>
-    	<div data-chart='{{ chart.category }}' class='chart chart--histogram'></div>
+      {{ add_chart(chart) }}
     {% endfor %}
   </div>
 
   {# dot lines #}
-  <div class='text-wrapper'>
-    <h2 class='histogram-header'>{{ scatter_lline_header }}</h2>
-    {{ scatter_lline_chatter|markdown }}
-  </div>
+    <div class='text-wrapper'>
+      <h2 class='histogram-header'>{{ histograms_header }}</h2>
+      {{ histograms_chatter|markdown }}
+    </div>
 
     <div class='histograms'>
     {% for chart in charts if chart.type == "scatterline" %}
-      <h3 class='chart-label'>{{ chart.headline }}</h3>
-      <div data-chart='{{ chart.category }}' class='chart chart--scatterline'></div>
+      {{ add_chart(chart) }}
     {% endfor %}
+    </div>
+
+    <div class='credits'>
+      {{ sources|markdown }}
+      {{ credits|markdown }}
     </div>
 </div>
 {% endblock content %}

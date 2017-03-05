@@ -36,7 +36,10 @@ $mobile-max-width: 449px;
 	text-align:center;
 }
 
-
+.trb_mainContent .credits p{
+	@include agate();
+	margin-top:15px
+}
 
 
 @media all and (max-width:$tablet-max-width){

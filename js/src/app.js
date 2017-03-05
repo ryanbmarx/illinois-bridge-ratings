@@ -1,5 +1,6 @@
 // import scatterLine from './scatter-line.js';
 import histogram from './histogram.js';
+import scatterline from './scatterline.js';
 import illinoisCountyChoropleth from './illinois-choropleth.js';
 import {csv} from 'd3';
 import {json} from 'd3';
@@ -19,6 +20,11 @@ window.onload = function(){
 		document.querySelectorAll('.chart--histogram').forEach(chart =>{
 			let category = chart.dataset.chart;
 			histogram(data, category, chart);	
+		});
+
+		document.querySelectorAll('.chart--scatterline').forEach(chart =>{
+			let category = chart.dataset.chart;
+			scatterline(data, category, chart);	
 		});
 	})
 
