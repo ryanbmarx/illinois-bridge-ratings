@@ -20,6 +20,26 @@
     <h2 class='map__header'>Percentage of bridges that are deficient</h2>
     <p class='map__sub-header'>By county</p>
   </div>
+  <table class='map-table'>
+    <thead>
+      <tr>
+        <th>County</th>
+        <th class='align-right'>Total bridges</th>
+        <th class='align-right'>Deficient bridges</th>
+        <th class='align-right'>Percentage deficient</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for county in counties|sort(true, attribute='bridges') if county.chicago_area == 1 %}
+        <tr>
+          <td>{{ county.county }}</td>
+          <td class='align-right'>{{ county.bridges }}</td>
+          <td class='align-right'>{{ county.deficient }}</td>
+          <td class='align-right'>{{ county.deficient_per }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
 
   {# HISTOGRAMS #}
   <div class='text-wrapper'>

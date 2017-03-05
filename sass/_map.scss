@@ -24,3 +24,9 @@
 		@include trib-legend__box(0);
 	}
 }
+
+.map-table{
+	@include trib-table(compressed);
+	max-width: 500px;
+	margin:15px auto;
+}
