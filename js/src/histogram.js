@@ -22,7 +22,7 @@ function generateHistogramData(rawData, category){
 	// countBy won't know if there are any ratings missing, so we'll do a quick check. We want a bar 
 	// for each of the 8 ratings and n/a even if any of those values is zero.
 	// This array order also will be the order in which the bars are rendered
-	const ratings = ["N",1,2,3,4,5,6,7,8];
+	const ratings = ["N",1,2,3,4,5,6,7,8,9];
 
 	ratings.forEach(rating => {
 		if (!(tempData[rating] > 0)){
