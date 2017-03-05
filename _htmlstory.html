@@ -30,10 +30,10 @@
   </div>
 
   {# dot lines #}
-    <div class='text-wrapper'>
-      <h2 class='histogram-header'>{{ histograms_header }}</h2>
-      {{ histograms_chatter|markdown }}
-    </div>
+ {#    <div class='text-wrapper'>
+      <h2 class='histogram-header'>{{ scatterline_header }}</h2>
+      {{ scatterline_chatter|markdown }}
+    </div> #}
 
     <div class='histograms'>
     {% for chart in charts if chart.type == "scatterline" %}

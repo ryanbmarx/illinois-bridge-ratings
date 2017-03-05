@@ -11,10 +11,10 @@ function scatterline(data, category, container){
 	// const container = d3.select(container);
 	
 	const bbox = d3.select(container).node().getBoundingClientRect(),
-		circleRadius = 8,
+		circleRadius = 6,
 		height=bbox.height,
 		width=bbox.width,
-		margin={top:0,right:50,bottom:25,left:50},
+		margin={top:0,right:20,bottom:20,left:20},
 		innerHeight = height - margin.top - margin.bottom,
 		innerWidth = width - margin.right - margin.left;
 
