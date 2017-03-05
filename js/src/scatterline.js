@@ -5,8 +5,8 @@ import getTribColors from './getTribColors.js'
 
 
 function scatterline(data, category, container){
-	console.log('drawing scatterline >>>>>>>>>>');
-	console.log(category);
+	// console.log('drawing scatterline >>>>>>>>>>');
+	// console.log(category);
 
 	// const container = d3.select(container);
 	
@@ -21,9 +21,7 @@ function scatterline(data, category, container){
 	const axisFormat = category == "year_built" ? "d" : ",";
 
 	const extent = d3.extent(data, d => parseInt(d[category]));
-	
-	console.log(extent);
-	
+		
 	const scatterScale = d3.scaleLinear()
 		.domain(extent)
 		.range([0,innerWidth])

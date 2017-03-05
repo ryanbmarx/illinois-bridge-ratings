@@ -10,7 +10,7 @@ import {json} from 'd3';
 
 
 window.onload = function(){
-	console.log('window is onloaded');
+	// console.log('window is onloaded', window.ROOT_URL);
 
 	csv(`http://${window.ROOT_URL}/data/bridge-ratings.csv`, (err, data) => {
 		if (err) throw err;

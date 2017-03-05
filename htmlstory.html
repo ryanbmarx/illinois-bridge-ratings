@@ -57,11 +57,6 @@
   </div>
 
   {# dot lines #}
- {#    <div class='text-wrapper'>
-      <h2 class='histogram-header'>{{ scatterline_header }}</h2>
-      {{ scatterline_chatter|markdown }}
-    </div> #}
-
     <div class='histograms'>
     {% for chart in charts if chart.type == "scatterline" %}
       {{ add_chart(chart) }}
@@ -85,10 +80,13 @@
 <script src="//{{ ROOT_URL }}/js/app.min.js"></script>
 <script>
 (function(document) {
-  window.ROOT_URL = "{{ ROOT_URL }}"
+
+  window.ROOT_URL = "graphics.chicagotribune.com/bridge-ratings-in-illinois-2017";
+
   var CSS = [
     "//{{ ROOT_URL }}/css/styles.css"
   ];
+
   CSS.forEach(function(url) {
     var link = document.createElement('link');
     link.setAttribute('rel', 'stylesheet');

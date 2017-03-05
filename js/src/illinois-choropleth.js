@@ -48,8 +48,6 @@ class illinoisCountyChoropleth{
 		const data = app.options.data;
 		const mapContainer = d3.select(app.options.container);
 
-		console.log('map data', data);
-
 		const containerBox = mapContainer.node().getBoundingClientRect(),
 			height = containerBox.height - 150,
 			width = containerBox.width;

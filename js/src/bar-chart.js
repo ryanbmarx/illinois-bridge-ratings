@@ -9,7 +9,7 @@ HTMLCollection.prototype[Symbol.iterator] = Array.prototype[Symbol.iterator];
 
 class barChart{
 	constructor(options){
-		console.log('options: ', options)
+		// console.log('options: ', options)
 		/*
 		root_url:'{{ ROOT_URL }}',
 		container:document.getElementById('barchart'),
@@ -169,7 +169,7 @@ class barChart{
 					.attr("x", (d, i) => xScale(d['x']))
 					.attr("width", xScale.bandwidth())
 					.style("fill", app.barColor);
-				console.log(app.options.barLabels);
+				// console.log(app.options.barLabels);
 			    
 			    if (app.options.barLabels){
 					// ----------------------------------

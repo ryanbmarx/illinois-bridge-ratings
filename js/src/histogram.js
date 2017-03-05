@@ -46,7 +46,7 @@ function generateHistogramData(rawData, category){
 
 function histogram(rawData, category, container){
 	const data = generateHistogramData(rawData, category);
-	console.log(data);
+	// console.log(data);
 	const hist = new barChart({
 		root_url:window.ROOT_URL,
 		chartType:'bar',
@@ -77,7 +77,7 @@ function histogram(rawData, category, container){
 		// }
 	});
 
-	console.log(data);
+	// console.log(data);
 
 }
 
